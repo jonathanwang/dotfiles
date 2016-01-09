@@ -262,6 +262,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+" EasyMotion
+Plugin 'easymotion/vim-easymotion'
+
 " YouCompleteMe
 " On OS X, first install the MacVim application by putting it into the Applications folder.
 " Then install 'mvim' to run MacVim from the command line.
