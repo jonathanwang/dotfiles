@@ -170,9 +170,9 @@ xnoremap <silent> <expr> t (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 
 " Change
-nnoremap w c|xnoremap w c|
-nnoremap W C|xnoremap W C|
-nnoremap ww cc|
+"nnoremap w c|xnoremap w c|
+"nnoremap W C|xnoremap W C|
+"nnoremap ww cc|
 
 " Space, insert space
 nnoremap <Space> i<Space><Esc><Right>|
@@ -191,10 +191,14 @@ noremap <silent> <C-n> :tabnext<CR>|
 
 " Viewport 
 " creating an empty viewport (<C-w>n) is not available
-nnoremap <C-w>n <C-w>h|xnoremap <C-w>n <C-w>h| 
-nnoremap <C-w>u <C-w>k|xnoremap <C-w>u <C-w>k| 
-nnoremap <C-w>e <C-w>j|xnoremap <C-w>e <C-w>j| 
-nnoremap <C-w>i <C-w>l|xnoremap <C-w>i <C-w>l| 
+nnoremap w <C-w>|xnoremap w <C-w>|
+nnoremap wn <C-w>h|xnoremap wn <C-w>h| 
+nnoremap wu <C-w>k|xnoremap wu <C-w>k| 
+nnoremap we <C-w>j|xnoremap we <C-w>j| 
+nnoremap wi <C-w>l|xnoremap wi <C-w>l| 
+" Unmap previous W and viewport keys
+nnoremap W <Nop>|xnoremap W <Nop>
+noremap <C-w> <Nop>|xnoremap <C-w> <Nop>
 
 " Macros (replay the macro recorded by qq)
 "nnoremap Q @q|
