@@ -244,12 +244,13 @@ cnoreabbr <expr> edit (getcmdtype() . getcmdline() != ':edit' ? 'edit' : 'tabedi
 "
 let g:EasyMotion_do_mapping = 0
 
-" Set the grouping mode to single-key priority
-let g:EasyMotion_grouping = 1
-
 " Change the default keys to Colemak weighting
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'NTESIROALPUFYWKVHD'
+
+" Change the highlight colors
+hi EasyMotionTarget2First ctermbg=none ctermfg=darkgreen cterm=bold
+hi EasyMotionTarget2Second ctermbg=none ctermfg=green cterm=bold
 
 " Search (=easymotion-bd-fn)
 map  / <Plug>(easymotion-sn)
