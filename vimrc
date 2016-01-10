@@ -47,6 +47,20 @@ set mouse=a
 " Run file shortcut command (:R)
 command R !./%
 
+" Disable function
+map <F1> <Nop>
+map <F2> <Nop>
+map <F3> <Nop>
+map <F4> <Nop>
+map <F5> <Nop>
+map <F6> <Nop>
+map <F7> <Nop>
+map <F8> <Nop>
+map <F9> <Nop>
+map <F10> <Nop>
+map <F11> <Nop>
+map <F12> <Nop>
+
 " Toggle insert paste mode
 nnoremap jp :set invpaste paste?<CR>
 
@@ -321,6 +335,57 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Disable netrw (:Explore)
 let loaded_netrwPlugin = 1
 
+
+
+"
+" ctrlp
+"
+let g:ctrlp_map = 'p'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 1000
+let g:ctrlp_max_depth = 5
+" Excluding version control directories
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
+
+let g:ctrlp_prompt_mappings = {
+\ 'PrtBS()':              ['<bs>', '<c-]>'],
+\ 'PrtDelete()':          ['<del>'],
+\ 'PrtDeleteWord()':      ['<c-w>'],
+\ 'PrtClear()':           ['<c-k>'],
+\ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+\ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+\ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
+\ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
+\ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
+\ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
+\ 'PrtHistory(-1)':       ['<c-u>'],
+\ 'PrtHistory(1)':        ['<c-e>'],
+\ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+\ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
+\ 'AcceptSelection("t")': ['<c-t>'],
+\ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+\ 'ToggleFocus()':        ['<s-tab>'],
+\ 'ToggleRegex()':        ['<c-r>'],
+\ 'ToggleByFname()':      ['<c-d>'],
+\ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
+\ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+\ 'PrtExpandDir()':       ['<tab>'],
+\ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
+\ 'PrtInsert()':          ['<c-\>'],
+\ 'PrtCurStart()':        ['<c-a>'],
+\ 'PrtCurEnd()':          ['<c-e>'],
+\ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
+\ 'PrtCurRight()':        ['<c-l>', '<right>'],
+\ 'PrtClearCache()':      [''],
+\ 'PrtDeleteEnt()':       [''],
+\ 'CreateNewFile()':      ['<c-y>'],
+\ 'MarkToOpen()':         ['<c-z>'],
+\ 'OpenMulti()':          ['<c-o>'],
+\ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+\ }
+
+
 "
 " Vundle configuration
 " 
@@ -355,13 +420,16 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 
 " NERDCommenter
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdcommenter'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 
 " NERDTree Git
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" ctrlp
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Solarized Colorscheme
 "Bundle 'altercation/vim-colors-solarized'
