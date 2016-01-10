@@ -7,10 +7,6 @@ set expandtab
 set nobackup
 set nowritebackup
 
-" enable use of mouse scroll wheel
-"map <ScrollWheelUp> <C-Y>
-"map <ScrollWheelDown> <C-E>
-
 " set the commandheight
 set cmdheight=2
 
@@ -41,8 +37,6 @@ syntax on		" enable syntax highlighting (set by solarized)
 set hlsearch		" highlight search patterns
 " set ignorecase		" ignore case
 set smartcase		" ignore case when the pattern contains lowercase letters only
-" turn off highlight search
-nnoremap <C-j> :noh<CR>|xnoremap <C-h> :noh<CR>|
 
 "set showtabline=2	" always show tab page labels
 set number		" display line numbers
@@ -50,12 +44,30 @@ set number		" display line numbers
 " Run file shortcut command (:R)
 command R !./%
 
-" Toggle insert paste mode with F2
+" Toggle insert paste mode
 nnoremap j :set invpaste paste?<CR>
 
-" Toggle line numbers with F4
+" Toggle line numbers
 nnoremap J :set invnumber<CR>
 
+" turn off highlight search
+nnoremap <C-j> :noh<CR>|xnoremap <C-h> :noh<CR>|
+
+" Toggle mouse
+function! ToggleMouse()
+    " check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse
+        set mouse=
+    else
+        " enable mouse everywhere
+        set mouse=a
+    endif
+endfunc
+nnoremap , :call ToggleMouse()<CR>
+
+" enable use of mouse
+set mouse=a
 
 
 " Redesigned mapping for the Colemak layout for Vim 7.0
