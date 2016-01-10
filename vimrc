@@ -300,9 +300,12 @@ let g:multi_cursor_next_key='m'
 let g:multi_cursor_prev_key='<C-m>'
 let g:multi_cursor_skip_key='M'
 let g:multi_cursor_quit_key='<C-c>'
-"let g:multi_cursor_start_key=','
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
+let g:multi_cursor_visual_maps={}
+let g:multi_cursor_insert_maps={}
+let g:multi_cursor_normal_maps={}
+" Disable the M key's previous operation
 map M <Nop>
 
 
