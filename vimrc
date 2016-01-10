@@ -299,7 +299,10 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='m'
 let g:multi_cursor_prev_key='<C-m>'
 let g:multi_cursor_skip_key='M'
-let g:multi_cursor_quit_key=','
+let g:multi_cursor_quit_key='<C-c>'
+"let g:multi_cursor_start_key=','
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
 map M <Nop>
 
 
