@@ -318,7 +318,8 @@ map M <Nop>
 " Close vim if the tree view is the last view
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
+" Disable netrw (:Explore)
+let loaded_netrwPlugin = 1
 
 "
 " Vundle configuration
