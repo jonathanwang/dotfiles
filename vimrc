@@ -250,6 +250,7 @@ let g:multi_cursor_next_key='m'
 let g:multi_cursor_prev_key='<C-m>'
 let g:multi_cursor_skip_key='M'
 let g:multi_cursor_quit_key='<C-c>'
+map M <Nop>
 
 
 "
