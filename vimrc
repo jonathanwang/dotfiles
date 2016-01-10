@@ -224,16 +224,15 @@ cnoreabbr <expr> ed   (getcmdtype() . getcmdline() != ':ed'   ? 'ed'   : 'tabedi
 cnoreabbr <expr> edi  (getcmdtype() . getcmdline() != ':edi'  ? 'edi'  : 'tabedit' )
 cnoreabbr <expr> edit (getcmdtype() . getcmdline() != ':edit' ? 'edit' : 'tabedit' )
 
+
 "
 " EasyMotion
 "
+let g:EasyMotion_do_mapping = 0
 
 " Bi-directional line and page jumping
-map h <Plug>(easymotion-bd-wl)
-map H <Plug>(easymotion-bd-w)
-
-" Disable the default mappings
-let g:EasyMotion_do_mapping = 0
+map H <Plug>(easymotion-bd-wl)
+map h <Plug>(easymotion-bd-w)
 
 " Search
 map  / <Plug>(easymotion-sn)
@@ -242,6 +241,15 @@ omap / <Plug>(easymotion-tn)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 
+
+"
+" vim-multiple-cursors
+"
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='m'
+let g:multi_cursor_prev_key='<C-m>'
+let g:multi_cursor_skip_key='M'
+let g:multi_cursor_quit_key='<C-c>'
 
 
 "
@@ -277,6 +285,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 " EasyMotion
 Plugin 'easymotion/vim-easymotion'
+
+" vim-multiple-cursors
+Plugin 'terryma/vim-multiple-cursors'
+
+" Powerline
+"Bundle '/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " YouCompleteMe
 " On OS X, first install the MacVim application by putting it into the Applications folder.
