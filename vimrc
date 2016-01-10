@@ -16,7 +16,7 @@ set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 " Always display a status line at the bottom of the window
 set laststatus=2
 
-" Always  set auto indenting on
+" Always set auto indenting on
 set autoindent
 
 " 'set nocompatible' is done in the Vundle section
@@ -41,17 +41,20 @@ set smartcase		" ignore case when the pattern contains lowercase letters only
 "set showtabline=2	" always show tab page labels
 set number		" display line numbers
 
+" Initially, enable use of mouse
+set mouse=a
+
 " Run file shortcut command (:R)
 command R !./%
 
 " Toggle insert paste mode
-nnoremap j :set invpaste paste?<CR>
+nnoremap jp :set invpaste paste?<CR>
 
 " Toggle line numbers
-nnoremap J :set invnumber<CR>
+nnoremap jn :set invnumber<CR>
 
 " turn off highlight search
-nnoremap <C-j> :noh<CR>|xnoremap <C-h> :noh<CR>|
+nnoremap jh :noh<CR>|xnoremap <C-h> :noh<CR>|
 
 " Toggle mouse
 function! ToggleMouse()
@@ -64,10 +67,7 @@ function! ToggleMouse()
         set mouse=a
     endif
 endfunc
-nnoremap , :call ToggleMouse()<CR>
-
-" enable use of mouse
-set mouse=a
+nnoremap jm :call ToggleMouse()<CR>
 
 
 " Redesigned mapping for the Colemak layout for Vim 7.0
@@ -112,9 +112,10 @@ nnoremap <silent> E @='5j'<CR>|xnoremap <silent> E @='5j'<CR>|onoremap E 5j|
 nnoremap <silent> I @='5l'<CR>|xnoremap <silent> I @='5l'<CR>|onoremap I 5l|
 
 " Scroll in-place
-" <C-Y>:Up  <C-E>:Down
-nnoremap <silent> <C-U> <C-Y>|xnoremap <silent> <C-U> <C-Y>
-" <C-E> unchanged
+" <C-y>:Up  <C-e>:Down
+nnoremap <silent> <C-u> <C-y>|xnoremap <silent> <C-u> <C-y>
+" <C-e> unchanged
+map <C-i> <Nop>
 
 " Home/end of line
 " 0 unchanged
@@ -183,16 +184,6 @@ nnoremap <CR> i<CR><Esc>|
 " Insert literal
 "inoremap <C-b> <C-v>|cnoremap <C-b> <C-v>|
 
-" Search
-" f unchanged
-" F unchanged
-noremap p t|xnoremap p t|onoremap p t|
-nnoremap P T|xnoremap P T|onoremap P T|
-nnoremap b ;|xnoremap b ;|onoremap b ;|
-"nnoremap B ,|xnoremap B ,|onoremap B ,|
-nnoremap k n|xnoremap k n|onoremap k n|
-nnoremap K N|xnoremap K N|onoremap K N|
-
 " Tabs
 noremap <silent> <C-t> :<C-u>tabnew<CR>|
 noremap <silent> <C-p> :tabprev<CR>|
@@ -249,20 +240,47 @@ cnoreabbr <expr> edit (getcmdtype() . getcmdline() != ':edit' ? 'edit' : 'tabedi
 
 
 "
-" EasyMotion
+" EasyMotion (replaces search)
 "
 let g:EasyMotion_do_mapping = 0
 
-" Bi-directional line and page jumping
-map H <Plug>(easymotion-bd-wl)
-map h <Plug>(easymotion-bd-w)
+" Change the default keys to Colemak weighting
+let g:EasyMotion_keys = 'seriaoplfuwyq;tn'
 
-" Search
+" Search (=easymotion-bd-fn)
 map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+
+" Remap the old search to '?'
+noremap ? /
+
+" Jump to next and previous search result
+nnoremap k n|xnoremap k n|onoremap k n|
+nnoremap K N|xnoremap K N|onoremap K N|
+
+" Use space or enter to get to the first search result
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
 
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+
+" Bi-directional word and character jumping
+map h <Plug>(easymotion-bd-f)
+map H <Plug>(easymotion-bd-w)
+
+" Previous search and jumping is replaced by easymotion
+" t,T,w,W are already remapped to other actions
+map f <Nop>
+map F <Nop>
+map p <Nop>
+map P <Nop>
+map b <Nop>
+map B <Nop>
+"noremap p t|xnoremap p t|onoremap p t|
+"nnoremap P T|xnoremap P T|onoremap P T|
+"nnoremap b ;|xnoremap b ;|onoremap b ;|
+"nnoremap B ,|xnoremap B ,|onoremap B ,|
+
 
 
 "
@@ -272,7 +290,7 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='m'
 let g:multi_cursor_prev_key='<C-m>'
 let g:multi_cursor_skip_key='M'
-let g:multi_cursor_quit_key='<C-c>'
+let g:multi_cursor_quit_key=','
 map M <Nop>
 
 
@@ -298,10 +316,6 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
