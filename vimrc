@@ -322,6 +322,7 @@ let g:multi_cursor_insert_maps={}
 let g:multi_cursor_normal_maps={}
 " Disable the M key's previous operation
 map M <Nop>
+map <C-m> <Nop>
 
 
 
@@ -349,40 +350,40 @@ let g:ctrlp_max_depth = 5
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 
 let g:ctrlp_prompt_mappings = {
-\ 'PrtBS()':              ['<bs>', '<c-]>'],
-\ 'PrtDelete()':          ['<del>'],
+\ 'PrtBS()':              ['<bs>', '<c-h>'],
+\ 'PrtDelete()':          ['<del>', '<c-d>'],
 \ 'PrtDeleteWord()':      ['<c-w>'],
 \ 'PrtClear()':           ['<c-k>'],
 \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
 \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-\ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
-\ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
-\ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
-\ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
-\ 'PrtHistory(-1)':       ['<c-u>'],
-\ 'PrtHistory(1)':        ['<c-e>'],
-\ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-\ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
-\ 'AcceptSelection("t")': ['<c-t>'],
-\ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
-\ 'ToggleFocus()':        ['<s-tab>'],
+\ 'PrtSelectMove("t")':   [''],
+\ 'PrtSelectMove("b")':   [''],
+\ 'PrtSelectMove("u")':   [''],
+\ 'PrtSelectMove("d")':   [''],
+\ 'PrtHistory(-1)':       [''],
+\ 'PrtHistory(1)':        [''],
+\ 'AcceptSelection("e")': ['<c-t>'],
+\ 'AcceptSelection("h")': [''],
+\ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+\ 'AcceptSelection("v")': [''],
+\ 'ToggleFocus()':        [''],
 \ 'ToggleRegex()':        ['<c-r>'],
-\ 'ToggleByFname()':      ['<c-d>'],
-\ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
-\ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+\ 'ToggleByFname()':      ['<c-i>'],
+\ 'ToggleType(1)':        ['<c-u>'],
+\ 'ToggleType(-1)':       [''],
 \ 'PrtExpandDir()':       ['<tab>'],
 \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
 \ 'PrtInsert()':          ['<c-\>'],
 \ 'PrtCurStart()':        ['<c-a>'],
 \ 'PrtCurEnd()':          ['<c-e>'],
-\ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
-\ 'PrtCurRight()':        ['<c-l>', '<right>'],
+\ 'PrtCurLeft()':         ['<c-b>', '<left>'],
+\ 'PrtCurRight()':        ['<c-f>', '<right>'],
 \ 'PrtClearCache()':      [''],
 \ 'PrtDeleteEnt()':       [''],
-\ 'CreateNewFile()':      ['<c-y>'],
-\ 'MarkToOpen()':         ['<c-z>'],
+\ 'CreateNewFile()':      [''],
+\ 'MarkToOpen()':         ['<c-y>'],
 \ 'OpenMulti()':          ['<c-o>'],
-\ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+\ 'PrtExit()':            ['<esc>', '<c-c>'],
 \ }
 
 
