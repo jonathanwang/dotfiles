@@ -69,6 +69,8 @@ function! ToggleMouse()
 endfunc
 nnoremap jm :call ToggleMouse()<CR>
 
+" Toggle NERDTree
+map jt :NERDTreeToggle<CR>
 
 " Redesigned mapping for the Colemak layout for Vim 7.0
 " 2008-04-21 Shai Coleman, http://colemak.com/ . Public domain. 
@@ -345,6 +347,12 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " NERDCommenter
 Plugin 'scrooloose/nerdcommenter'
+
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+
+" NERDTree Git
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Solarized Colorscheme
 "Bundle 'altercation/vim-colors-solarized'
