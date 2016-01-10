@@ -11,9 +11,6 @@ set nowritebackup
 "map <ScrollWheelUp> <C-Y>
 "map <ScrollWheelDown> <C-E>
 
-" show (partial) commands
-set showcmd
-
 " set the commandheight
 set cmdheight=2
 
@@ -27,6 +24,7 @@ set laststatus=2
 set autoindent
 
 " 'set nocompatible' is done in the Vundle section
+" 'filetype plugin indent on' is done in the Vundle section
 
 set nostartofline	" keep cursor in the same column if possible
 set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
@@ -50,10 +48,10 @@ set number		" display line numbers
 command R !./%
 
 " Toggle insert paste mode with F2
-nnoremap h :set invpaste paste?<CR>
+nnoremap j :set invpaste paste?<CR>
 
 " Toggle line numbers with F4
-nnoremap j :set invnumber<CR>
+nnoremap J :set invnumber<CR>
 
 
 
@@ -168,7 +166,7 @@ nnoremap ww cc|
 noremap p t|xnoremap p t|onoremap p t|
 nnoremap P T|xnoremap P T|onoremap P T|
 nnoremap b ;|xnoremap b ;|onoremap b ;|
-nnoremap B ,|xnoremap B ,|onoremap B ,|
+"nnoremap B ,|xnoremap B ,|onoremap B ,|
 nnoremap k n|xnoremap k n|onoremap k n|
 nnoremap K N|xnoremap K N|onoremap K N|
 
@@ -201,9 +199,6 @@ inoremap <expr> <M-;> pumvisible() ? "\<lt>C-n>" : "\<lt>C-x>\<lt>C-o>\<lt>C-n>\
 " Restore mappings
 " Free mappings: ,/+/H/~
 
-" , is reserved for your custom remapping
-"
-
 " Misc overridden keys must be prefixed with g
 "nnoremap gs s|xnoremap gs s|
 "nnoremap gX X|xnoremap gX X|
@@ -228,6 +223,24 @@ cnoreabbr <expr> e    (getcmdtype() . getcmdline() != ':e'    ? 'e'    : 'tabedi
 cnoreabbr <expr> ed   (getcmdtype() . getcmdline() != ':ed'   ? 'ed'   : 'tabedit' )
 cnoreabbr <expr> edi  (getcmdtype() . getcmdline() != ':edi'  ? 'edi'  : 'tabedit' )
 cnoreabbr <expr> edit (getcmdtype() . getcmdline() != ':edit' ? 'edit' : 'tabedit' )
+
+"
+" EasyMotion
+"
+
+" Bi-directional line and page jumping
+map h <Plug>(easymotion-bd-wl)
+map H <Plug>(easymotion-bd-w)
+
+" Disable the default mappings
+let g:EasyMotion_do_mapping = 0
+
+" Search
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
 
 
 
