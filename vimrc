@@ -35,7 +35,7 @@ syntax on		" enable syntax highlighting (set by solarized)
 
 " other optional settings
 set hlsearch		" highlight search patterns
-" set ignorecase		" ignore case
+set ignorecase		" ignore case
 set smartcase		" ignore case when the pattern contains lowercase letters only
 
 "set showtabline=2	" always show tab page labels
@@ -203,7 +203,7 @@ nnoremap W <Nop>|xnoremap W <Nop>
 noremap <C-w> <Nop>|xnoremap <C-w> <Nop>
 
 " Macros (replay the macro recorded by qq)
-"nnoremap Q @q|
+nnoremap Q @q|
 
 " Delete/Backspace
 nnoremap <C-d> "_x|vnoremap <Delete> "_d|
@@ -222,7 +222,6 @@ inoremap <expr> <M-;> pumvisible() ? "\<lt>C-n>" : "\<lt>C-x>\<lt>C-o>\<lt>C-n>\
 " Misc overridden keys must be prefixed with g
 "nnoremap gs s|xnoremap gs s|
 "nnoremap gX X|xnoremap gX X|
-"nnoremap gU U|xnoremap gU U|
 "nnoremap gQ Q|xnoremap gQ Q|
 "nnoremap gK K|xnoremap gK K|
 
@@ -309,6 +308,15 @@ let g:multi_cursor_insert_maps={}
 let g:multi_cursor_normal_maps={}
 " Disable the M key's previous operation
 map M <Nop>
+
+
+
+"
+" NERDTree
+"
+
+" Close vim if the tree view is the last view
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 
