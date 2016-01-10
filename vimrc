@@ -39,8 +39,11 @@ syntax on		" enable syntax highlighting
 
 " other optional settings
 set hlsearch		" highlight search patterns
-"set ignorecase		" ignore case
+" set ignorecase		" ignore case
 set smartcase		" ignore case when the pattern contains lowercase letters only
+" turn off highlight search
+nnoremap <C-j> :noh<CR>|xnoremap <C-h> :noh<CR>|
+
 "set showtabline=2	" always show tab page labels
 set number		" display line numbers
 
@@ -75,7 +78,8 @@ nnoremap J :set invnumber<CR>
 " (nv  )    l =Left 1 word ,     y =Right 1 word
 " (nv  ) <C-l>=Left 1 WORD ,  <C-y>=Right 1 WORD
 " (nv  )    L =Home        ,     Y =End
-" (nvi ) <Tab>=Escape  (also stops search highlight in normal mode)
+" (nvic) <Space>=Space
+" (nvic)  <CR>=Enter
 " Legend:
 " S - Shift, C - Ctrl
 " (c - command line, i - insert mode, n - normal mode, v - visual+select mode)
@@ -156,6 +160,13 @@ xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 nnoremap w c|xnoremap w c|
 nnoremap W C|xnoremap W C|
 nnoremap ww cc|
+
+" Space, insert space
+nnoremap <Space> i<Space><Esc><Right>|
+xnoremap <silent> <Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv><CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
+ 
+" Enter, open line
+nnoremap <CR> i<CR><Esc>|
 
 " Insert literal
 "inoremap <C-b> <C-v>|cnoremap <C-b> <C-v>|
