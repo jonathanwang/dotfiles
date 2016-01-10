@@ -35,7 +35,7 @@ set incsearch		" enable incremental search
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-syntax on		" enable syntax highlighting
+syntax on		" enable syntax highlighting (set by solarized)
 
 " other optional settings
 set hlsearch		" highlight search patterns
@@ -264,6 +264,7 @@ let g:multi_cursor_quit_key='<C-c>'
 map M <Nop>
 
 
+
 "
 " Vundle configuration
 " 
@@ -300,6 +301,15 @@ Plugin 'easymotion/vim-easymotion'
 
 " vim-multiple-cursors
 Plugin 'terryma/vim-multiple-cursors'
+
+" NERDCommenter
+Plugin 'scrooloose/nerdcommenter'
+
+" Solarized Colorscheme
+"Bundle 'altercation/vim-colors-solarized'
+"colorscheme solarized
+"syntax enable
+"set background=light
 
 " Powerline
 "Bundle '/powerline', {'rtp': 'powerline/bindings/vim/'}
