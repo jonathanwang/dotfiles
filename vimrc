@@ -405,6 +405,9 @@ let g:ctrlp_prompt_mappings = {
 " vim-airline
 "
 
+" Themes - https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme="light"
+
 
 
 
