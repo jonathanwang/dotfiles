@@ -10,7 +10,7 @@ set nowritebackup
 " set the commandheight
 "set cmdheight=2
 
-" Set status line
+" Set status line (deprecated in favor of vim airline)"
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 
 " Always display a status line at the bottom of the window
@@ -27,8 +27,7 @@ set nostartofline
 
 set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
 set virtualedit=block	" allow virtual editing in Visual block mode
-"set lazyredraw		" don't redraw screen while executing macros/mappings
-"(cursor bottom of screen glitch)
+"set lazyredraw		" don't redraw screen while executing macros/mappings (deprecated: cursor bottom of screen glitch)
 set scrolloff=1		" minimal number of screen lines to keep above and below the cursor
 set incsearch		" enable incremental search
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
