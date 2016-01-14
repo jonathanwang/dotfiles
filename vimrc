@@ -19,6 +19,9 @@ set laststatus=2
 " Always set auto indenting on
 set autoindent
 
+" Set terminal color detection to 256 always
+set t_Co=256
+
 " 'set nocompatible' is done in the Vundle section
 " 'filetype plugin indent on' is done in the Vundle section
 
@@ -207,7 +210,7 @@ xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 " Space, insert space
 nnoremap <Space> i<Space><Esc><Right>|
 xnoremap <silent> <Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv><CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
-
+ 
 " Enter, open line
 nnoremap <CR> i<CR><Esc>|
 
@@ -406,8 +409,7 @@ let g:ctrlp_prompt_mappings = {
 "
 
 " Themes - https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme="light"
-
+let g:airline_theme="solarized"
 
 
 
@@ -460,13 +462,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 
 " Solarized Colorscheme
-"Bundle 'altercation/vim-colors-solarized'
-"colorscheme solarized
-"syntax enable
-"set background=light
-
-" Powerline
-"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'altercation/vim-colors-solarized'
 
 " YouCompleteMe
 " On OS X, first install the MacVim application by putting it into the Applications folder.
@@ -491,4 +487,15 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+
+"
+" Solarized (must come after Vundle)
+"
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
+
+
 
