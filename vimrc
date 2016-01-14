@@ -41,7 +41,10 @@ set ignorecase		" ignore case
 set smartcase		" ignore case when the pattern contains lowercase letters only
 
 "set showtabline=2	" always show tab page labels
-set number		" display line numbers
+
+" Display line numbers
+set number
+highlight LineNr ctermbg=255
 
 " Initially, enable use of mouse
 set mouse=a
