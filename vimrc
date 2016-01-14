@@ -7,9 +7,6 @@ set expandtab
 set nobackup
 set nowritebackup
 
-" set the commandheight
-"set cmdheight=2
-
 " Set status line (deprecated in favor of vim airline)"
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 
@@ -210,7 +207,7 @@ xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 " Space, insert space
 nnoremap <Space> i<Space><Esc><Right>|
 xnoremap <silent> <Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv><CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
- 
+
 " Enter, open line
 nnoremap <CR> i<CR><Esc>|
 
