@@ -22,10 +22,13 @@ set autoindent
 " 'set nocompatible' is done in the Vundle section
 " 'filetype plugin indent on' is done in the Vundle section
 
-set nostartofline	" keep cursor in the same column if possible
+" keep cursor in the same column if possible
+set nostartofline
+
 set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
 set virtualedit=block	" allow virtual editing in Visual block mode
-set lazyredraw		" don't redraw screen while executing macros/mappings
+"set lazyredraw		" don't redraw screen while executing macros/mappings
+"(cursor bottom of screen glitch)
 set scrolloff=1		" minimal number of screen lines to keep above and below the cursor
 set incsearch		" enable incremental search
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode

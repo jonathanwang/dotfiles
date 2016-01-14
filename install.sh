@@ -31,3 +31,8 @@ done
 
 # Git lg
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Clone Vundle
+if [ ! -e $dir/vim/bundle/Vundle.vim ]; then
+    git clone https://github.com/gmarik/Vundle.vim.git $dir/vim/bundle/Vundle.vim
+
