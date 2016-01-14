@@ -8,10 +8,10 @@ set nobackup
 set nowritebackup
 
 " set the commandheight
-set cmdheight=2
+"set cmdheight=2
 
 " Set status line
-set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
+"set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 
 " Always display a status line at the bottom of the window
 set laststatus=2
@@ -435,6 +435,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " ctrlp
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" vim-airline
+Plugin 'vim-airline/vim-airline'
+
 " Solarized Colorscheme
 "Bundle 'altercation/vim-colors-solarized'
 "colorscheme solarized
@@ -442,7 +445,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "set background=light
 
 " Powerline
-"Bundle '/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " YouCompleteMe
 " On OS X, first install the MacVim application by putting it into the Applications folder.
