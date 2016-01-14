@@ -3,7 +3,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
-" do not keep a backup files 
+" do not keep a backup files
 set nobackup
 set nowritebackup
 
@@ -63,6 +63,10 @@ map <F10> <Nop>
 map <F11> <Nop>
 map <F12> <Nop>
 
+"
+" 'j' shortcut keys
+"
+
 " Toggle insert paste mode
 nnoremap jp :set invpaste paste?<CR>
 
@@ -88,8 +92,16 @@ nnoremap jm :call ToggleMouse()<CR>
 " Toggle NERDTree
 map jt :NERDTreeToggle<CR>
 
+" Strip trailing whitespace
+function! StripTrailingWhitespaces()
+    %s/\s\+$//e
+endfunc
+nnoremap jw :call StripTrailingWhitespaces()<CR>
+
+
+
 " Redesigned mapping for the Colemak layout for Vim 7.0
-" 2008-04-21 Shai Coleman, http://colemak.com/ . Public domain. 
+" 2008-04-21 Shai Coleman, http://colemak.com/ . Public domain.
 "
 " recommended commands for running under Linux console
 " $ export TERM=xterm    # make Backspace and Ctrl-H work correctly
@@ -101,7 +113,7 @@ map jt :NERDTreeToggle<CR>
 "  qwfpg jlUy;[]\         u        |       k          qwert yuiop[]\
 "  arstd hNEIo'         n   i      |     h   l        asdfg HJKL;'
 "  zxcvb km,./            e        |       j          zxcvb nm,./
-" 
+"
 " (nv  )    n =Left        ,     i =Right    ,    u =Up        ,     e =Down
 " (nv  )    N =Left*5      ,     I =Right*5  ,    U =Up*5      ,     E =Down*5
 " (nv  ) <C-n>=tabprev     ,  <C-i>=tabnext  , <C-u>=ScrollUp  ,  <C-e>=ScrollDown
@@ -195,7 +207,7 @@ xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 " Space, insert space
 nnoremap <Space> i<Space><Esc><Right>|
 xnoremap <silent> <Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv><CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
- 
+
 " Enter, open line
 nnoremap <CR> i<CR><Esc>|
 
@@ -207,13 +219,13 @@ noremap <silent> <C-t> :<C-u>tabnew<CR>|
 noremap <silent> <C-p> :tabprev<CR>|
 noremap <silent> <C-n> :tabnext<CR>|
 
-" Viewport 
+" Viewport
 " creating an empty viewport (<C-w>n) is not available
 nnoremap w <C-w>|xnoremap w <C-w>|
-nnoremap wn <C-w>h|xnoremap wn <C-w>h| 
-nnoremap wu <C-w>k|xnoremap wu <C-w>k| 
-nnoremap we <C-w>j|xnoremap we <C-w>j| 
-nnoremap wi <C-w>l|xnoremap wi <C-w>l| 
+nnoremap wn <C-w>h|xnoremap wn <C-w>h|
+nnoremap wu <C-w>k|xnoremap wu <C-w>k|
+nnoremap we <C-w>j|xnoremap we <C-w>j|
+nnoremap wi <C-w>l|xnoremap wi <C-w>l|
 " Unmap previous W and viewport keys
 nnoremap W <Nop>|xnoremap W <Nop>
 noremap <C-w> <Nop>|xnoremap <C-w> <Nop>
@@ -390,8 +402,15 @@ let g:ctrlp_prompt_mappings = {
 
 
 "
+" vim-airline
+"
+
+
+
+
+"
 " Vundle configuration
-" 
+"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
