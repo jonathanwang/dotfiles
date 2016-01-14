@@ -171,11 +171,9 @@ nnoremap ; :|xnoremap ; :|
 nnoremap x x|xnoremap x d|
 nnoremap c y|xnoremap c y|
 nnoremap v gP|xnoremap v gP|
-nnoremap X dd|xnoremap X d|
-nnoremap C yy|xnoremap C y|
-nnoremap V p|xnoremap V p|
-nnoremap <C-c> "+Y| " <C-c> with no selection copies current line to clipboard
-nnoremap <C-x> "+dd| " <C-x> with no selection cuts current line to clipboard
+nnoremap X "+x|xnoremap X "+d| " cut to clipboard
+nnoremap C "+y|xnoremap C "+y| " copy to clipboard
+nnoremap V "+gP|xnoremap V "+gP| " paste from clipboard
 
 " Undo/redo
 nnoremap z u|xnoremap z :<C-u>undo<CR>|
@@ -199,7 +197,7 @@ xnoremap <silent> <expr> S (mode() =~# "[V]" ? "\<C-v>0o$I" : "I")
 xnoremap <silent> <expr> t (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 
-" Change
+" Change (deprecated: 'w' is used for viewport control now)
 "nnoremap w c|xnoremap w c|
 "nnoremap W C|xnoremap W C|
 "nnoremap ww cc|
