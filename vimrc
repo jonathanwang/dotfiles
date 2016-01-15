@@ -40,11 +40,9 @@ set hlsearch		" highlight search patterns
 set ignorecase		" ignore case
 set smartcase		" ignore case when the pattern contains lowercase letters only
 
-"set showtabline=2	" always show tab page labels
-
 " Display line numbers
 set number
-highlight LineNr ctermbg=255
+highlight LineNr ctermfg=172 ctermbg=255
 
 " Initially, enable use of mouse
 set mouse=a
@@ -52,7 +50,7 @@ set mouse=a
 " Run file shortcut command (:R)
 command R !./%
 
-" Disable function
+" Disable function keys
 map <F1> <Nop>
 map <F2> <Nop>
 map <F3> <Nop>
@@ -148,7 +146,7 @@ nnoremap <silent> I @='5l'<CR>|xnoremap <silent> I @='5l'<CR>|onoremap I 5l|
 " <C-y>:Up  <C-e>:Down
 nnoremap <silent> <C-u> <C-y>|xnoremap <silent> <C-u> <C-y>
 " <C-e> unchanged
-map <C-i> <Nop>
+noremap <C-i> <Nop>
 
 " Home/end of line
 " 0 unchanged
@@ -170,7 +168,7 @@ onoremap r i
 " Map ; to :
 nnoremap ; :|xnoremap ; :|
 
-" Cut/copy/paste
+" Cut/copy/paste (with system clipboard)
 nnoremap x x|xnoremap x d|
 nnoremap c y|xnoremap c y|
 nnoremap v gP|xnoremap v gP|
@@ -180,7 +178,7 @@ nnoremap V "+gP|xnoremap V "+gP| " paste from clipboard
 
 " Undo/redo
 nnoremap z u|xnoremap z :<C-u>undo<CR>|
-"nnoremap gz U|xnoremap gz U<C-u>undo<CR>|
+"nnoremap gz U|xnoremap gz U<C-u>undo<CR>| " not as useful
 nnoremap Z <C-r>|xnoremap Z :<C-u>redo<CR>|
 inoremap <CR> <C-g>u<CR>| " Break undo chain (Tip #1054)
 
@@ -193,6 +191,10 @@ nnoremap T A|xnoremap T A|
 " Visual mode
 nnoremap a v|xnoremap a v|
 nnoremap A V|xnoremap A V|
+
+" Jump to next and previous search result
+nnoremap k n|xnoremap k n|onoremap k n|
+nnoremap K N|xnoremap K N|onoremap K N|
 
 " Make insert/add work also in visual line mode like in visual block mode
 xnoremap <silent> <expr> s (mode() =~# "[V]" ? "\<C-v>0o$I" : "I")
@@ -325,15 +327,6 @@ Plugin 'vim-airline/vim-airline'
 " Solarized Colorscheme
 Plugin 'altercation/vim-colors-solarized'
 
-" YouCompleteMe
-" On OS X, first install the MacVim application by putting it into the Applications folder.
-" Then install 'mvim' to run MacVim from the command line.
-" Download the source and locate the executable 'src/MacVim/mvim'.
-" Install the 'mvim' executable by copying it to '/usr/local/bin/mvim'.
-" Create an alias to use mvim instead of the regular vim. Place this alias in the '.bash_profile':
-" alias vim='mvim -v'
-"Plugin 'Valloric/YouCompleteMe'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -369,10 +362,6 @@ map  / <Plug>(easymotion-sn)
 
 " Remap the old search to '?'
 noremap ? /
-
-" Jump to next and previous search result
-nnoremap k n|xnoremap k n|onoremap k n|
-nnoremap K N|xnoremap K N|onoremap K N|
 
 " Use space or enter to get to the first search result
 let g:EasyMotion_enter_jump_first = 1
@@ -415,7 +404,7 @@ let g:multi_cursor_insert_maps={}
 let g:multi_cursor_normal_maps={}
 " Disable the M key's previous operation
 map M <Nop>
-map <C-m> <Nop>
+"map <C-m> <Nop>
 
 
 
