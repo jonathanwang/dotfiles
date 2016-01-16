@@ -25,6 +25,9 @@ set t_Co=256
 " keep cursor in the same column if possible
 set nostartofline
 
+" Autowrapping
+set textwidth=120
+
 set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
 set virtualedit=block	" allow virtual editing in Visual block mode
 "set lazyredraw		" don't redraw screen while executing macros/mappings (deprecated: cursor bottom of screen glitch)
@@ -392,19 +395,19 @@ map B <Nop>
 "
 " vim-multiple-cursors
 "
+" Note: 'set ignorecase' doesn't allow capital letters to be used as mappings
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='m'
-let g:multi_cursor_prev_key='<C-m>'
-let g:multi_cursor_skip_key='M'
+let g:multi_cursor_prev_key='p'
+let g:multi_cursor_skip_key='f'
 let g:multi_cursor_quit_key='<C-c>'
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 let g:multi_cursor_visual_maps={}
 let g:multi_cursor_insert_maps={}
 let g:multi_cursor_normal_maps={}
-" Disable the M key's previous operation
-map M <Nop>
-"map <C-m> <Nop>
+" Disable <C-c> in normal mode so that it can be used as the quit key
+nnoremap <C-c> <Nop>
 
 
 
