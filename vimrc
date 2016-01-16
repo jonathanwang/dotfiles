@@ -32,15 +32,15 @@ set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
 set virtualedit=block	" allow virtual editing in Visual block mode
 "set lazyredraw		" don't redraw screen while executing macros/mappings (deprecated: cursor bottom of screen glitch)
 set scrolloff=1		" minimal number of screen lines to keep above and below the cursor
-set incsearch		" enable incremental search
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-syntax on		" enable syntax highlighting (set by solarized)
+syntax on		" enable syntax highlighting (needed for solarized)
 
-" other optional settings
+" Search
+set incsearch		" enable incremental search
 set hlsearch		" highlight search patterns
-set ignorecase		" ignore case
+set ignorecase		" ignore case (needed for EasyMotion search)
 set smartcase		" ignore case when the pattern contains lowercase letters only
 
 " Display line numbers
