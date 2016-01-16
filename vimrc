@@ -47,7 +47,7 @@ set smartcase		" ignore case when the pattern contains lowercase letters only
 set number
 highlight LineNr ctermfg=172 ctermbg=255
 
-" Initially, enable use of mouse
+" Enable use of mouse
 set mouse=a
 
 " Run file shortcut command (:R)
