@@ -205,11 +205,6 @@ xnoremap <silent> <expr> S (mode() =~# "[V]" ? "\<C-v>0o$I" : "I")
 xnoremap <silent> <expr> t (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 xnoremap <silent> <expr> T (mode() =~# "[V]" ? "\<C-v>0o$A" : "A")
 
-" Change (deprecated: 'w' is used for viewport control now)
-"nnoremap w c|xnoremap w c|
-"nnoremap W C|xnoremap W C|
-"nnoremap ww cc|
-
 " Space, insert space
 nnoremap <Space> i<Space><Esc><Right>|
 xnoremap <silent> <Space> :<C-u>let b:tmp_var=&sw\|set sw=1\|normal! gv><CR>:<C-u>let &sw=b:tmp_var\|normal! gv<CR>
@@ -221,7 +216,7 @@ nnoremap <CR> i<CR><Esc>|
 "inoremap <C-b> <C-v>|cnoremap <C-b> <C-v>|
 
 " Tabs
-noremap <silent> <C-t> :<C-u>tabnew<CR>|
+noremap <silent> <C-t> :tabnew<CR>|
 noremap <silent> <C-p> :tabprev<CR>|
 noremap <silent> <C-n> :tabnext<CR>|
 
@@ -379,16 +374,12 @@ map H <Plug>(easymotion-bd-w)
 
 " Previous search and jumping is replaced by easymotion
 " t,T,w,W are already remapped to other actions
-map f <Nop>
-map F <Nop>
-map p <Nop>
-map P <Nop>
-map b <Nop>
-map B <Nop>
-"noremap p t|xnoremap p t|onoremap p t|
-"nnoremap P T|xnoremap P T|onoremap P T|
-"nnoremap b ;|xnoremap b ;|onoremap b ;|
-"nnoremap B ,|xnoremap B ,|onoremap B ,|
+noremap f <Nop>
+noremap F <Nop>
+noremap p <Nop>
+noremap P <Nop>
+noremap b <Nop>
+noremap B <Nop>
 
 
 
@@ -408,7 +399,8 @@ let g:multi_cursor_insert_maps={}
 let g:multi_cursor_normal_maps={}
 " Disable <C-c> in normal mode so that it can be used as the quit key
 nnoremap <C-c> <Nop>
-
+" Disable the 'M' key
+noremap M <Nop>
 
 
 "
