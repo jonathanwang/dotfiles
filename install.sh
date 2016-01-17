@@ -57,4 +57,5 @@ if [ -z "$DOTFILES" ]; then
 		fi
 	done
 fi
+echo "IMPORTANT: Open a new shell in order to see the changes"
 

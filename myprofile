@@ -7,10 +7,22 @@ else
     return 0
 fi
 
-# Highlight items
-export CLICOLOR=1
-export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
-#export LSCOLORS=GxFxCxDxBxegedabagaced
+# Operating system specific settings
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	# Linux
+    :
+
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OS X
+
+	# Highlight items
+	export CLICOLOR=1
+	export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+	#export LSCOLORS=GxFxCxDxBxegedabagaced
+
+else
+    echo "Unrecognized operating system"
+fi
 
 # git prompt
 # https://github.com/magicmonty/bash-git-prompt
