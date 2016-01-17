@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Include guard
+if [ -z "$DOTFILES" ]; then
+    export DOTFILES=yes
+else
+    return 0
+fi
+
+# Highlight items
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+#export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# git prompt
+# https://github.com/magicmonty/bash-git-prompt
+PS1='\u: \W$ '
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/dotfiles/bash-git-prompt/gitprompt.sh
+
+# deprecated git prompt
+#source ~/.git-prompt.sh
+#PS1='\u: \W$(__git_ps1 " (%s)")\$ '
+
