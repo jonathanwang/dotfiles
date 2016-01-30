@@ -34,7 +34,7 @@ done
 
 # Git lg
 echo "Adding 'git lg'"
-git config --global alias.lg "log --color --branches --remotes --tags --graph --oneline --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # Clone Vundle
 if [ -e $dir/vim/bundle/Vundle.vim ]; then
