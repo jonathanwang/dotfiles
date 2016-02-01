@@ -321,6 +321,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " vim-airline
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Solarized Colorscheme
 Plugin 'altercation/vim-colors-solarized'
