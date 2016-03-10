@@ -28,6 +28,9 @@ set nostartofline
 " Autowrapping
 set textwidth=120
 
+" Autowrapping of git editing
+au FileType gitcommit setlocal tw=120
+
 set whichwrap=b,s,[,],<,>,h,l " allow cursor to wrap between lines
 set virtualedit=block	" allow virtual editing in Visual block mode
 "set lazyredraw		" don't redraw screen while executing macros/mappings (deprecated: cursor bottom of screen glitch)
