@@ -34,3 +34,6 @@ source ~/dotfiles/bash-git-prompt/gitprompt.sh
 #source ~/.git-prompt.sh
 #PS1='\u: \W$(__git_ps1 " (%s)")\$ '
 
+# Git listing of branches by date
+alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
+
