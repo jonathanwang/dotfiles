@@ -40,3 +40,5 @@ alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(ref
 # Disable Ctrl-D to logout of a shell session
 set -o ignoreeof
 
+# Re-enable Ctrl-S to forward search commands in the shell
+stty -ixon
