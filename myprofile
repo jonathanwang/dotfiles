@@ -42,3 +42,9 @@ set -o ignoreeof
 
 # Re-enable Ctrl-S to forward search commands in the shell
 stty -ixon
+
+# Append and combine history from multiple bash sessions
+unset HISTFILESIZE
+export HISTSIZE=3000
+export PROMPT_COMMAND="history -a"
+shopt -s histappend
