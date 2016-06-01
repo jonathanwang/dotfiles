@@ -24,6 +24,13 @@ else
     echo "Unrecognized operating system"
 fi
 
+# Append and combine history from multiple bash sessions.
+# This section must come before the git prompt section.
+unset HISTFILESIZE
+export HISTSIZE=3000
+export PROMPT_COMMAND="history -a"
+shopt -s histappend
+
 # git prompt
 # https://github.com/magicmonty/bash-git-prompt
 PS1='\u: \W$ '
@@ -42,9 +49,3 @@ set -o ignoreeof
 
 # Re-enable Ctrl-S to forward search commands in the shell
 stty -ixon
-
-# Append and combine history from multiple bash sessions
-unset HISTFILESIZE
-export HISTSIZE=3000
-export PROMPT_COMMAND="history -a"
-shopt -s histappend
