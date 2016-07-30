@@ -14,7 +14,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OS X
-
+ 
 	# Highlight items
 	export CLICOLOR=1
 	export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
@@ -22,6 +22,17 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
 else
     echo "Unrecognized operating system"
+fi
+
+# Settings that depend on whether or not the session is over SSH
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # Using SSH
+    :
+else
+    # Not using SSH
+
+    # Shorten prompt
+    PS1='\u: \W$ '
 fi
 
 # Append and combine history from multiple bash sessions.
@@ -33,7 +44,6 @@ shopt -s histappend
 
 # git prompt
 # https://github.com/magicmonty/bash-git-prompt
-PS1='\u: \W$ '
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/dotfiles/bash-git-prompt/gitprompt.sh
 
