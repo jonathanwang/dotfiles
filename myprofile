@@ -28,6 +28,7 @@ fi
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     # Using SSH
     :
+
 else
     # Not using SSH
 
@@ -35,15 +36,9 @@ else
     PS1='\u: \W$ '
 fi
 
-# Append and combine history from multiple bash sessions.
-# This section must come before the git prompt section.
-unset HISTFILESIZE
-export HISTSIZE=10000
-export PROMPT_COMMAND="history -a"
-shopt -s histappend
-
 # git prompt
 # https://github.com/magicmonty/bash-git-prompt
+export PROMPT_COMMAND=""
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/dotfiles/bash-git-prompt/gitprompt.sh
 
@@ -53,6 +48,20 @@ source ~/dotfiles/bash-git-prompt/gitprompt.sh
 
 # Git listing of branches by date
 alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
+
+# Don't put duplicate lines in the history.
+HISTCONTROL=ignoredups
+
+# Append and combine history from multiple bash sessions.
+# This section must come before the git prompt section.
+unset HISTFILESIZE
+export HISTSIZE=10000
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # Disable Ctrl-D to logout of a shell session
 set -o ignoreeof
