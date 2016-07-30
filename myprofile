@@ -53,10 +53,10 @@ alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(ref
 HISTCONTROL=ignoredups
 
 # Append and combine history from multiple bash sessions.
-# This section must come before the git prompt section.
+# This section must come after the git prompt section because it overrides the PROMPT_COMMAND.
 unset HISTFILESIZE
 export HISTSIZE=10000
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+export PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
 shopt -s histappend
 
 # check the window size after each command and, if necessary,
