@@ -51,7 +51,9 @@ set number
 highlight LineNr ctermfg=172 ctermbg=255
 
 " Enable use of mouse
-set mouse=a
+if has('mouse')
+    set mouse=a
+endif
 
 " Run file shortcut command (:R)
 command R !./%
