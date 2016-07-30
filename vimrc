@@ -3,9 +3,10 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
-" do not keep a backup files
+" Do not keep a backup or swap files
 set nobackup
 set nowritebackup
+set noswapfile
 
 " Set status line (deprecated in favor of vim airline)"
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
