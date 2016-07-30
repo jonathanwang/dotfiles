@@ -38,7 +38,7 @@ fi
 # Append and combine history from multiple bash sessions.
 # This section must come before the git prompt section.
 unset HISTFILESIZE
-export HISTSIZE=3000
+export HISTSIZE=10000
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
