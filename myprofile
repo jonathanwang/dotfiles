@@ -27,24 +27,26 @@ fi
 # Settings that depend on whether or not the session is over SSH
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     # Using SSH
-    :
 
+    # Bash prompt with hostname
+    export PS1='\[\033[0;32m\]\u@\h\[\033[00m\]:\[\033[0;34m\]\w\[\033[00m\]$ '
 else
     # Not using SSH
 
-    # Shorten prompt
-    PS1='\u: \W$ '
+    # Bash prompt without hostname
+    export PS1='\[\033[0;32m\]\u\[\033[00m\]:\[\033[0;34m\]\w\[\033[00m\]$ '
 fi
 
 # git prompt
 # https://github.com/magicmonty/bash-git-prompt
 export PROMPT_COMMAND=""
 GIT_PROMPT_ONLY_IN_REPO=1
+# Set the beginning of the git prompt to the current PS1 except with the extra space trimmed from the end.
+GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ \[\033[0m\]$(echo ${PS1%?})"
+# The end of the git prompt is set to an empty string to avoid the extra newline.
+GIT_PROMPT_END=" "
+# Load the git prompt
 source ~/dotfiles/bash-git-prompt/gitprompt.sh
-
-# deprecated git prompt
-#source ~/.git-prompt.sh
-#PS1='\u: \W$(__git_ps1 " (%s)")\$ '
 
 # Git listing of branches by date
 alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"

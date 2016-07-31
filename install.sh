@@ -7,7 +7,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-dotfiles=(vimrc vim)   	 # list of files/folders to symlink in homedir
+dotfiles=(vimrc vim)  # list of files/folders to symlink in homedir
 bash_files=(.profile .bash_profile .bashrc)  # bash files to add the command to source the 'myprofile'
 custom_profile=myprofile
 
@@ -49,13 +49,13 @@ vim +PluginInstall +qall
 # if it has not already been added (DOTFILES), and if the file exists.
 if [ -z "$DOTFILES" ]; then
     for file in ${bash_files[@]}; do
-		echo "Adding sourcing custom profile to $file"
+        echo "Adding sourcing custom profile to $file"
         if [ -e ~/$file ]; then
-			echo "# Sourcing custom bash profile" >> ~/$file
-			echo "source $dir/$custom_profile" >> ~/$file
-			echo "" >> ~/$file
-		fi
-	done
+            echo "# Sourcing custom bash profile" >> ~/$file
+            echo "source $dir/$custom_profile" >> ~/$file
+            echo "" >> ~/$file
+        fi
+    done
 fi
 echo "IMPORTANT: Open a new shell in order to see the changes"
 
