@@ -9,16 +9,21 @@ fi
 
 # Operating system specific settings
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	# Linux
-    :
+    # Linux
+
+    # Enable color support of ls
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+    fi
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OS X
  
-	# Highlight items
-	export CLICOLOR=1
-	export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
-	#export LSCOLORS=GxFxCxDxBxegedabagaced
+    # Enable color support of ls
+    export CLICOLOR=1
+    export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+    #export LSCOLORS=GxFxCxDxBxegedabagaced
 
 else
     echo "Unrecognized operating system"
@@ -51,6 +56,11 @@ source ~/dotfiles/bash-git-prompt/gitprompt.sh
 # Git listing of branches by date
 alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
 
+# grep aliases
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 # Don't put duplicate lines in the history.
 HISTCONTROL=ignoredups
 
@@ -61,8 +71,23 @@ export HISTSIZE=10000
 export PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
 shopt -s histappend
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Enable programmable completion features (you don't need to enable this, if it's already enabled in /etc/bash.bashrc
+# and /etc/profile sources /etc/bash.bashrc).
+# if ! shopt -oq posix; then
+#     if [ -f /usr/share/bash-completion/bash_completion ]; then
+#         . /usr/share/bash-completion/bash_completion
+#     elif [ -f /etc/bash_completion ]; then
+#         . /etc/bash_completion
+#     elif [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+#         . /opt/local/etc/profile.d/bash_completion.sh
+#     fi
+# fi
+
+# The pattern "**" used in a pathname expansion context will match all files and zero or more directories and
+# subdirectories. Older shells (OS X) might not have this option.
+#shopt -s globstar
+
+# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # Disable Ctrl-D to logout of a shell session
