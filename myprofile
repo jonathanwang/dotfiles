@@ -46,10 +46,10 @@ fi
 #
 #GIT_PROMPT_ONLY_IN_REPO=1
 # Set the beginning of the git prompt to the last command indicator and a color reset plus the current PS1 except with
-# the extra space trimmed from the end.
-GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_\[\033[0m\] $(echo ${PS1%?})"
-# The end of the git prompt is set to an empty string to avoid the extra newline.
-GIT_PROMPT_END=" "
+# the extra '$ ' trimmed from the end so that it can be reinserted at the end.
+GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_\[\033[0m\] $(echo ${PS1%??})"
+# The end of the git prompt is set to sequence that was removed from PS1.
+GIT_PROMPT_END="$ "
 # Load the git prompt
 source ~/dotfiles/bash-git-prompt/gitprompt.sh
 
