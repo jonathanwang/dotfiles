@@ -44,10 +44,14 @@ fi
 
 # bash git prompt: https://github.com/magicmonty/bash-git-prompt
 #
-#GIT_PROMPT_ONLY_IN_REPO=1
+# This prompt is also used even when not in the git repository to get the last command indicator.
+# To use the promt only in repositories, uncomment the line below.
+# GIT_PROMPT_ONLY_IN_REPO=1
 # Set the beginning of the git prompt to the last command indicator and a color reset plus the current PS1 except with
 # the extra '$ ' trimmed from the end so that it can be reinserted at the end.
 GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_\[\033[0m\] $(echo ${PS1%??})"
+# No leading space in front of the status component.
+GIT_PROMPT_LEADING_SPACE=0
 # The end of the git prompt is set to sequence that was removed from PS1.
 GIT_PROMPT_END="$ "
 # Load the git prompt
