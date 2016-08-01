@@ -42,12 +42,11 @@ else
     export PS1='\[\033[0;32m\]\u\[\033[00m\]:\[\033[0;34m\]\w\[\033[00m\]$ '
 fi
 
-# git prompt
-# https://github.com/magicmonty/bash-git-prompt
-export PROMPT_COMMAND=""
-GIT_PROMPT_ONLY_IN_REPO=1
-# Set the beginning of the git prompt to the current PS1 except with the extra space trimmed from the end.
-GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_ \[\033[0m\]$(echo ${PS1%?})"
+# bash git prompt: https://github.com/magicmonty/bash-git-prompt
+#
+# Set the beginning of the git prompt to the last command indicator and a color reset plus the current PS1 except with
+# the extra space trimmed from the end.
+GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_\[\033[0m\] $(echo ${PS1%?})"
 # The end of the git prompt is set to an empty string to avoid the extra newline.
 GIT_PROMPT_END=" "
 # Load the git prompt
@@ -65,7 +64,6 @@ alias egrep='egrep --color=auto'
 HISTCONTROL=ignoredups
 
 # Append and combine history from multiple bash sessions.
-# This section must come after the git prompt section because it overrides the PROMPT_COMMAND.
 unset HISTFILESIZE
 export HISTSIZE=10000
 export PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
