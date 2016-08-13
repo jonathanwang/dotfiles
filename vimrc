@@ -26,6 +26,10 @@ set t_Co=256
 " keep cursor in the same column if possible
 set nostartofline
 
+" Show column guide
+set colorcolumn=121
+highlight ColorColumn ctermbg=255
+
 " Autowrapping
 set textwidth=120
 
@@ -363,10 +367,7 @@ hi EasyMotionTarget2First ctermbg=none ctermfg=darkgreen cterm=bold
 hi EasyMotionTarget2Second ctermbg=none ctermfg=green cterm=bold
 
 " Search (=easymotion-bd-fn)
-map  / <Plug>(easymotion-sn)
-
-" Remap the old search to '?'
-noremap ? /
+map ? <Plug>(easymotion-sn)
 
 " Use space or enter to get to the first search result
 let g:EasyMotion_enter_jump_first = 1
@@ -488,6 +489,3 @@ let g:airline_theme="light"
 "let g:solarized_termcolors=256
 "set background=light
 "colorscheme solarized
-
-
-
