@@ -50,7 +50,7 @@ if [[ "$__GIT_PROMPT_IGNORE_STASH" != "1" ]]; then
 fi
 
 clean=0
-if (( num_changed == 0 && num_staged == 0 && num_U == 0 && num_untracked == 0 && num_stashed == 0 )) ; then
+if (( num_changed == 0 && num_staged == 0 && num_untracked == 0 && num_stashed == 0 && num_conflicts == 0 )) ; then
   clean=1
 fi
 
@@ -58,7 +58,7 @@ remote=
 upstream=
 
 if [[ -z "$branch" ]]; then
-  tag=$( git describe --exact-match 2>/dev/null )
+  tag=$( git describe --tags --exact-match 2>/dev/null )
   if [[ -n "$tag" ]]; then
     branch="$tag"
   else

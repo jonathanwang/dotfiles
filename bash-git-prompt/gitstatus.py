@@ -21,7 +21,11 @@ __all__ = ["Print"]
 
 try:
     Print = eval("print")  # python 3.0 case
-except SyntaxError:
+    python_version = 3
+    to_str = str
+except SyntaxError as e:
+    python_version = 2
+    to_str = unicode
     D = dict()
     try:
         exec ("from __future__ import print_function\np=print", D)
@@ -85,6 +89,8 @@ for st in status:
     if st[0] == '#' and st[1] == '#':
         if re.search('Initial commit on', st[2]):
             branch = st[2].split(' ')[-1]
+        elif re.search('No commits yet on', st[2]):
+            branch = st[2].split(' ')[-1]
         elif re.search('no branch', st[2]):  # detached status
             branch = get_tag_or_hash()
         elif len(st[2].strip().split('...')) == 1:
@@ -126,14 +132,23 @@ else:
 if remote == "":
     remote = '.'
 
+if python_version == 2:
+    remote = remote.decode('utf-8')
+
 out = '\n'.join([
     branch,
-    remote.decode('utf-8'),
-    str(len(staged)),
-    str(len(conflicts)),
-    str(len(changed)),
-    str(len(untracked)),
-    str(stashed),
-    str(clean)
+    remote,
+    to_str(len(staged)),
+    to_str(len(conflicts)),
+    to_str(len(changed)),
+    to_str(len(untracked)),
+    to_str(stashed),
+    to_str(clean),
+    to_str(python_version),
 ])
-Print(out)
+
+
+if python_version == 2:
+    Print(out.encode('utf-8'))
+else:
+    Print(out)
