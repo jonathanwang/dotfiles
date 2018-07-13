@@ -1,0 +1,14 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Case Conversion",
+		"CMake",
+		"Colorsublime",
+		"Package Control",
+		"Wrap Plus"
+	]
+}
