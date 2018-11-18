@@ -91,7 +91,7 @@ shopt -s histappend
 
 # The pattern "**" used in a pathname expansion context will match all files and zero or more directories and
 # subdirectories. Older shells (OS X) might not have this option.
-#shopt -s globstar
+shopt -s globstar
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 shopt -s checkwinsize

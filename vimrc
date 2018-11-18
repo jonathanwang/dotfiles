@@ -336,6 +336,9 @@ Plugin 'vim-airline/vim-airline-themes'
 " Solarized Colorscheme
 Plugin 'altercation/vim-colors-solarized'
 
+" saltstack
+Plugin 'saltstack/salt-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
