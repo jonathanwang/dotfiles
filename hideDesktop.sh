@@ -1,4 +1,7 @@
 #!/bin/bash
+# Toggle Hiding of Desktop Icons on Mac
+# Author:  Jonathan Wang
+# Created: 5/18/2020
 
 currentState=`defaults read com.apple.finder CreateDesktop`
 
